@@ -67,7 +67,6 @@ public class BlockFrameTileEntity extends TileEntity {
 				for (int x = -1; x < solid.getXSize() + 1; x++){
 					for (int y = -1; y < solid.getYSize() + 1; y++){
 						for (int z = -1; z < solid.getZSize() + 1; z++){
-
 							worldObj.setBlockToAir(x + solid.minX, y + solid.minY, z + solid.minZ);
 						}
 					}
