@@ -1,0 +1,14 @@
+[
+{
+  "name": "Multi Block Mod",
+  "description": "This is a mod.",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Taketorino_Okina"],
+  "credits": "",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": ["ThermalExpansion"]
+}
+]

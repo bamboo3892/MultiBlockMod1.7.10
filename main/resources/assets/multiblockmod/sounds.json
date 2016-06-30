@@ -1,0 +1,14 @@
+{
+  "clockpulser":{
+    "category":"block",
+    "sounds":[
+      {
+        "name": "clockpulser",
+        "weight": 1,
+        "volume": 1,
+        "pitch":1,
+        "stream":false
+      }
+    ]
+  }
+}

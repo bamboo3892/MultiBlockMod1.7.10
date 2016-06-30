@@ -1,0 +1,23 @@
+int(xSize)
+int(ySize)
+int(zSize)
+list(blockList) ----- compound ----- int(index)
+                  |              |-- string(name)
+                  |              |-- compound(side0) ----- byte(io)
+                  |              |                     |-- int(index)
+                  |              |                     |-- byte(side)
+                  |              |
+                  |              |-- compound(side1) ----- byte(io)
+                  |              |                     |-- int(index)
+                  |              |                     |-- byte(side)
+                  |              |
+                  |              |
+                  |              |
+                  |              |
+                  |              |
+                  |              |-- compound(side5) ----- byte(io)
+                  |                                    |-- int(index)
+                  |                                    |-- byte(side)
+                  |
+                  |-- compound -----
+                  |              |
