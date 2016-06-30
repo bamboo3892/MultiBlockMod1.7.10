@@ -157,7 +157,7 @@ public class BlockPipeTileEntity extends TileEntity implements ISimpleTilePacket
 				}
 			}else if(t instanceof ProcessorContainerTileEntity){
 				ProcessorContainerTileEntity tile = (ProcessorContainerTileEntity) t;
-				if(tileClass.isAssignableFrom(tile.getContainProcessor().getClass())){
+				if(tile.getContainProcessor() != null && tileClass.isAssignableFrom(tile.getContainProcessor().getClass())){
 					ConnectionEntry<ProcessorBase> entry = new ConnectionEntry<ProcessorBase>(tile.getContainProcessor());
 					if(!tiles.contains(entry)){
 						tiles.add(entry);
