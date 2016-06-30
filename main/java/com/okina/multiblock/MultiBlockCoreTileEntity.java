@@ -867,7 +867,7 @@ public class MultiBlockCoreTileEntity extends TileEntity implements ISimpleTileP
 		parts = new ProcessorContainerPart[xSize][ySize][zSize];
 
 		NBTTagList blockTagList = tag.getTagList("blockList", Constants.NBT.TAG_COMPOUND);
-		int eStored = 0;
+		//		int eStored = 0;
 		int eStorage = 0;
 		int eTransfer = 0;
 		for (int tagCounter = 0; tagCounter < blockTagList.tagCount(); ++tagCounter){
@@ -880,19 +880,19 @@ public class MultiBlockCoreTileEntity extends TileEntity implements ISimpleTileP
 			}
 			parts[x][y][z].readFromNBT(blockTagCompound);
 			if(parts[x][y][z].getContainProcessor() instanceof EnergyProviderProcessor){
-				eStored += ((EnergyProviderProcessor) parts[x][y][z].getContainProcessor()).extractEnergy(ForgeDirection.UNKNOWN, EnergyProviderProcessor.storage[4], false);
+				//				eStored += ((EnergyProviderProcessor) parts[x][y][z].getContainProcessor()).extractEnergy(ForgeDirection.UNKNOWN, EnergyProviderProcessor.storage[4], false);
 				eStorage += EnergyProviderProcessor.storage[parts[x][y][z].getContainProcessor().grade];
 				eTransfer = Math.max(eTransfer, EnergyProviderProcessor.transfer[parts[x][y][z].getContainProcessor().grade]);
 			}
 		}
 
-		if(eStorage != 0 && eTransfer != 0){
-			energyStorage = new EnergyStorage(eStorage, eTransfer);
-			energyStorage.readFromNBT(tag);
-			energyStorage.setEnergyStored(eStored);
-		}else{
-			energyStorage = new EnergyStorage(0, 0);
-		}
+		//		if(eStorage != 0 && eTransfer != 0){
+		energyStorage = new EnergyStorage(eStorage, eTransfer);
+		energyStorage.readFromNBT(tag);
+		//		energyStorage.setEnergyStored(eStored);
+		//		}else{
+		//			energyStorage = new EnergyStorage(0, 0);
+		//		}
 
 		NBTTagList interfaceTagList = tag.getTagList("interface", Constants.NBT.TAG_COMPOUND);
 		for (int tagCounter = 0; tagCounter < interfaceTagList.tagCount(); ++tagCounter){

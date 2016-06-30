@@ -146,7 +146,7 @@ public class CraftingFilterInventory extends AbstractFilter implements IInventor
 					if(InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), product.copy(), InventoryHelper.SIMULATE) == null){
 						for (ItemStack mat2 : materials){
 							if(mat2.getItem().getContainerItem() != null){
-								if(InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), new ItemStack(mat2.getItem().getContainerItem(), 1), InventoryHelper.SIMULATE) != null) return false;
+								if(InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), new ItemStack(mat2.getItem().getContainerItem(), mat2.stackSize), InventoryHelper.SIMULATE) != null) return false;
 							}
 						}
 						//can transfer
@@ -157,7 +157,7 @@ public class CraftingFilterInventory extends AbstractFilter implements IInventor
 						InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), product.copy(), InventoryHelper.WHOLE);
 						for (ItemStack mat2 : materials){
 							if(mat2.getItem().getContainerItem() != null){
-								InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), new ItemStack(mat2.getItem().getContainerItem(), 1), InventoryHelper.WHOLE);
+								InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), new ItemStack(mat2.getItem().getContainerItem(), mat2.stackSize), InventoryHelper.WHOLE);
 							}
 						}
 						sided.markDirty();
@@ -187,7 +187,7 @@ public class CraftingFilterInventory extends AbstractFilter implements IInventor
 				if(InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), product.copy(), InventoryHelper.SIMULATE) == null){
 					for (ItemStack mat2 : materials){
 						if(mat2.getItem().getContainerItem() != null){
-							if(InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), new ItemStack(mat2.getItem().getContainerItem(), 1), InventoryHelper.SIMULATE) != null) return false;
+							if(InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), new ItemStack(mat2.getItem().getContainerItem(), mat2.stackSize), InventoryHelper.SIMULATE) != null) return false;
 						}
 					}
 					//can transfer
@@ -198,7 +198,7 @@ public class CraftingFilterInventory extends AbstractFilter implements IInventor
 					InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), product.copy(), InventoryHelper.WHOLE);
 					for (ItemStack mat2 : materials){
 						if(mat2.getItem().getContainerItem() != null){
-							InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), new ItemStack(mat2.getItem().getContainerItem(), 1), InventoryHelper.WHOLE);
+							InventoryHelper.tryPushItem(goal, ForgeDirection.getOrientation(goalSide), new ItemStack(mat2.getItem().getContainerItem(), mat2.stackSize), InventoryHelper.WHOLE);
 						}
 					}
 					start.markDirty();

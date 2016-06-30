@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import com.okina.main.TestCore;
 import com.okina.multiblock.construct.ProcessorContainerTileEntity;
 import com.okina.multiblock.construct.processor.AlterProcessor;
+import com.okina.multiblock.construct.processor.EnergyProviderProcessor;
 import com.okina.utils.Position;
 import com.okina.utils.RectangularSolid;
 
+import cofh.api.energy.EnergyStorage;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -256,6 +258,7 @@ public class BlockFrameTileEntity extends TileEntity {
 		tags.setBoolean("pause", true);
 
 		NBTTagList blocksTagList = new NBTTagList();
+		int energy = 0;
 		for (int index = 0; index < solid.getIndexSize(); index++){
 			Position p = solid.toCoord(index);
 			if(worldObj.getTileEntity(p.x, p.y, p.z) instanceof ProcessorContainerTileEntity){
@@ -267,9 +270,16 @@ public class BlockFrameTileEntity extends TileEntity {
 				//				base.writeDetailToNBTForItemStack(baseTag, isCreative);
 				base.writeToNBT(baseTag);
 				blocksTagList.appendTag(baseTag);
+				if(base.getContainProcessor() instanceof EnergyProviderProcessor){
+					energy += ((EnergyProviderProcessor) base.getContainProcessor()).getEnergyStored(ForgeDirection.UNKNOWN);
+					if(!isCreative) ((EnergyProviderProcessor) base.getContainProcessor()).setEnergyStored(0);
+				}
 			}
 		}
 		tags.setTag("blockList", blocksTagList);
+		EnergyStorage energyStorage = new EnergyStorage(energy);
+		energyStorage.setEnergyStored(energy);
+		energyStorage.writeToNBT(tags);
 
 		NBTTagList interfaceTagList = new NBTTagList();
 		for (Position p : interfaceList){

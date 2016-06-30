@@ -142,6 +142,9 @@ public class EnergyProviderProcessor extends ProcessorBase implements IEnergyHan
 	public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate) {
 		return energyStorage.extractEnergy(maxExtract, simulate);
 	}
+	public void setEnergyStored(int energy) {
+		energyStorage.setEnergyStored(energy);
+	}
 	@Override
 	public int getEnergyStored(ForgeDirection from) {
 		return energyStorage.getEnergyStored();
