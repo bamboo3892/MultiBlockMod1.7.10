@@ -34,8 +34,6 @@ public class EventHandler {
 	//		//		}
 	//	}
 
-	
-
 	@SubscribeEvent
 	public void toolTip(ItemTooltipEvent event) {
 		Item item = event.itemStack.getItem();

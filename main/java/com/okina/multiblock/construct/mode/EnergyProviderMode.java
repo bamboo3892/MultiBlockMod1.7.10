@@ -105,7 +105,6 @@ public class EnergyProviderMode extends ContainerModeBase {
 			processingRecipe = EnergyProdeceRecipeRegister.instance.findRecipe(container.renderStack);
 			//stop
 			if(processingRecipe == null || provider == null){
-				System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 				processingTicks = -1;
 				container.renderStack = null;
 				container.markDirty();
